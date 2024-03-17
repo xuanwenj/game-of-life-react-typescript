@@ -17,6 +17,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          Initial commit
         </a>
       </header>
     </div>
