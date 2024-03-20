@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { produce } from 'immer';
 
 import './App.css';
 const numRows = 50;
@@ -25,6 +26,13 @@ const App: React.FC =() => {
       rows.map((col,k) => 
         <div 
         key={`${i}-${k}`}
+        onClick={() => {
+          // use api rather than updating the state in grid[i][k]=1;
+          const newGrid = produce(grid, gridCopy => {
+            gridCopy[i][k] = 1;
+          })
+            setGrid(newGrid);
+        }}
         style={{
           width: 20, 
           height: 20, 
